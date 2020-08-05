@@ -1,4 +1,4 @@
-from api.schema import ma
+from api import ma
 from api.model.mount import Mount
 
 class MountSchema(ma.SQLAlchemyAutoSchema):

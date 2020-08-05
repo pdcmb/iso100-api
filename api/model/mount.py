@@ -1,4 +1,4 @@
-from api.model import db
+from api import db
 
 class Mount(db.Model):
     id = db.Column(db.Integer, primary_key=True)

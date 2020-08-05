@@ -1,4 +1,4 @@
-from api.model import db
+from api import db
 from api.model.producer import Producer
 from api.model.mount import Mount
 from api.model.sensor_format import SensorFormat
@@ -20,3 +20,19 @@ class Camera(db.Model):
     sensor_format = db.relationship('SensorFormat', backref=db.backref('cameras', lazy=True))
     mount_id = db.Column(db.Integer, db.ForeignKey('mount.id'), nullable=False)
     mount = db.relationship('Mount', backref=db.backref('cameras', lazy=True))
+
+    def __init__(self, model, iso_min, iso_max, resolution, autofocus, ois, wr, wifi, weight,
+        producer, sensor_format, mount):
+            self.model = model
+            self.iso_min = iso_min
+            self.iso_max = iso_max
+            self.resolution = resolution
+            self.autofocus = autofocus
+            self.ois = ois
+            self.wr = wr
+            self.wifi = wifi
+            self.weight = weight
+            self.producer = producer
+            self.sensor_format = sensor_format
+            self.mount = mount
+            
